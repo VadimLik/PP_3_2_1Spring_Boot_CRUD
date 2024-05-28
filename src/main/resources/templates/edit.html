@@ -1,0 +1,23 @@
+<meta charset="UTF-8">
+<title>Изменить данные пользователя</title>
+</head>
+<body>
+<h1>Измените данные пользователя и подтвердите изменения:</h1>
+<br/>
+<form th:method="POST" th:action="@{/update{id}(id=${user.getId()})}" th:object="${user}">
+    <label for="name">Введите имя: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <label for="last_name">Введите фамилию: </label>
+    <input type="text" th:field="*{lastName}" id="last_name"/>
+    <br/>
+    <label for="age">Введите возраст: </label>
+    <input type="text" th:field="*{age}" id="age"/>
+    <br/>
+    <input type="submit" value="Подтвердить изменения"/>
+    <input type="hidden" name="id" th:value="${user.getId()}"/>
+    <br/>
+</form>
+
+</body>
+</html>
